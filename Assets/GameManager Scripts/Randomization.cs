@@ -21,6 +21,10 @@ public class Randomization : MonoBehaviour
     IEnumerator Randomize() {
         canRandomize = false;
 
+        int randomizer = Random.Range(0, 4);
+
+
+
         yield return new WaitForSeconds(1f);
     }
 }

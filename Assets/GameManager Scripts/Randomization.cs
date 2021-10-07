@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class Randomization : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    bool canRandomize;
+
+
+    private void Update()
     {
-        
+        if (canRandomize)
+        {
+            StartCoroutine(Randomize());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    IEnumerator Randomize() {
+        canRandomize = false;
+
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
+    public Rigidbody rb;
 
     [Header("Speeds")]
     public float speed;
-    public float rotationspeed;
+    [SerializeField] float forwardSpeed;
+
+
+    bool isGrounded;
+    public LayerMask ground;
 
     void Start()
     {
@@ -19,13 +23,24 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         float Xfloat = Input.GetAxis("Horizontal");
-        float Yfloat = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(Xfloat, 0, Yfloat) * Time.deltaTime * speed;
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, ground);
 
-        rb.AddForce(movement);
-        Vector3 rotation = new Vector3(rotationspeed, 0, rotationspeed);
-        transform.Rotate(rotation * rotationspeed);
+        if (isGrounded)
+        {
+            Vector3 movement = new Vector3(Xfloat, 0, forwardSpeed) * Time.deltaTime * speed;
+            rb.AddForce(movement);
+        }
+        else
+        {
+            Vector3 movement = new Vector3(Xfloat, 0, 0) * Time.deltaTime * speed;
+            rb.AddForce(movement);
+        }
+
+        
+
+        
+
 
     }
 }

@@ -19,6 +19,5 @@ public class Scoreboard : MonoBehaviour
         score.SetText(scoretimer.ToString("F1") + "s");
 
         scoretimer += Time.deltaTime;
-        Debug.Log(scoretimer);
     }
 }

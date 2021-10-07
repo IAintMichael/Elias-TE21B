@@ -8,13 +8,16 @@ public class Randomization : MonoBehaviour
 
 
     private void Update()
-    {
+    { 
+        //Så att randomizern inte går av för ofta
         if (canRandomize)
         {
+            //Starta Randomizern
             StartCoroutine(Randomize());
         }
     }
 
+    //Självaste Randomizern
     IEnumerator Randomize() {
         canRandomize = false;
 

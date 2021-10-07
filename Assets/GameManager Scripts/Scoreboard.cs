@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 public class Scoreboard : MonoBehaviour
 {
     float scoretimer;
-    public Text score;
+    public TextMeshProUGUI score;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +16,7 @@ public class Scoreboard : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        score.text = scoretimer.ToString("F1") + "s";
+        score.SetText(scoretimer.ToString("F1") + "s");
 
         scoretimer += Time.deltaTime;
         Debug.Log(scoretimer);

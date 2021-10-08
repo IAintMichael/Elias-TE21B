@@ -658,6 +658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityFactor: 10
+  changablePlayerSpeed: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b7660d816d186449e5d6e1a79d8706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_Star: 1
 --- !u!65 &1039064001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1041,7 +1043,7 @@ GameObject:
   - component: {fileID: 1301666976}
   - component: {fileID: 1301666975}
   m_Layer: 0
-  m_Name: Cube 1 (1)
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1118,7 +1120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301666973}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.7, y: -5.73, z: 12.26}
+  m_LocalPosition: {x: -4.7, y: -31.4, z: 83.49}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b7660d816d186449e5d6e1a79d8706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_Star: 0
 --- !u!1 &1981403019
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,10 +1704,6 @@ PrefabInstance:
     - target: {fileID: 4367070080717690162, guid: 6ea606a31b0b309419c4f656f0d93bfd, type: 3}
       propertyPath: m_Name
       value: PowerUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4925120941098392289, guid: 6ea606a31b0b309419c4f656f0d93bfd, type: 3}
-      propertyPath: gravityFactor
-      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea606a31b0b309419c4f656f0d93bfd, type: 3}

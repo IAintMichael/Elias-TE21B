@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class DestroyObject : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public bool is_Star;
+
+
 
     // Update is called once per frame
     void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if (!is_Star)
+        {
+            if (other.gameObject.tag == "Enemy")
             {
-            Destroy(gameObject);
+                Destroy(gameObject);
             }
+        }
+        else
+        {
+            if (other.gameObject.tag == "Enemy")
+            {
+                Destroy(other.gameObject);
+            }
+        }
+        
+       
     }
 }

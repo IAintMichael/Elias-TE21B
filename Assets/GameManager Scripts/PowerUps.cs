@@ -11,7 +11,16 @@ public class PowerUps : MonoBehaviour
         Time.timeScale = gravityFactor * Time.fixedDeltaTime;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
 
+            SlowMotion();
+
+            Destroy(gameObject);
+        }
+    }
 
 
 

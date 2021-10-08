@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
-    [SerializeField] float gravityFactor;
-    public float changablePlayerSpeed;
 
-    DestroyObject destroyGame;
+
+    StarChange starChange;
 
     GameObject player;
 
@@ -17,7 +16,7 @@ public class PowerUps : MonoBehaviour
     {
         player = FindObjectOfType<PlayerMovement>().gameObject;
 
-        destroyGame = player.GetComponent<DestroyObject>();
+        starChange = player.GetComponent<StarChange>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,37 +29,16 @@ public class PowerUps : MonoBehaviour
 
             if(randomizer == 0)
             {
-                StartCoroutine(SlowMotion());
+                StartCoroutine(starChange.SlowDown());
             } 
             else if(randomizer == 1)
             {
-                StartCoroutine(StarPower());
+                StartCoroutine(starChange.StarPower());
             }
 
             
 
             Destroy(gameObject);
         }
-    }
-
-    //Alla IEnumerators
-    IEnumerator SlowMotion()
-    {
-        Time.timeScale = gravityFactor * Time.fixedDeltaTime;
-        player.GetComponent<PlayerMovement>().speed *= changablePlayerSpeed;
-
-        yield return new WaitForSeconds(5f);
-
-        player.GetComponent<PlayerMovement>().speed /= changablePlayerSpeed;
-        Time.timeScale = 1;
-    }
-
-    IEnumerator StarPower()
-    {
-        destroyGame.is_Star = true;
-
-        yield return new WaitForSeconds(8f);
-
-        destroyGame.is_Star = false;
     }
 }

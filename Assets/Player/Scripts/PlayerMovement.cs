@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float Xfloat = Input.GetAxis("Horizontal");
 
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.1f, ground);
+        isGrounded = Physics.Raycast(transform.position, -Vector3.up, 1.2f, ground);
 
         if (isGrounded)
         {

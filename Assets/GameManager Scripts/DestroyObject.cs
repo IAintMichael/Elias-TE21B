@@ -26,7 +26,12 @@ public class DestroyObject : MonoBehaviour
                 Destroy(other.gameObject);
             }
         }
-        
-       
     }
+    void playerDied()
+    {
+        LevelManager.instance.GameOver();
+        gameObject.SetActive(false);
+
+    }
+
 }

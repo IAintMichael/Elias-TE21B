@@ -21,7 +21,7 @@ public class StarChange : MonoBehaviour
     {
         if (gameObject.GetComponent<DestroyObject>().is_Star)
         {
-            gameObject.GetComponent<Renderer>().material = allMats[1];
+            
         }
         else
         {
@@ -32,8 +32,33 @@ public class StarChange : MonoBehaviour
     {
         destroyGame.is_Star = true;
 
-        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<Renderer>().material = allMats[1];
 
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[1];
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[1];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[1];
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
         destroyGame.is_Star = false;
     }
     public IEnumerator SlowDown()
@@ -45,5 +70,13 @@ public class StarChange : MonoBehaviour
 
         GetComponent<PlayerMovement>().speed /= changablePlayerSpeed;
         Time.timeScale = 1;
+    }
+    public void StartSlowDown()
+    {
+        StartCoroutine(SlowDown());
+    }
+    public void StartStarChange()
+    {
+        StartCoroutine(StarPower());
     }
 }

@@ -23,22 +23,23 @@ public class PowerUps : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             int randomizer = Random.Range(0, 2);
 
             Debug.Log(randomizer);
 
             if(randomizer == 0)
             {
-                StartCoroutine(starChange.SlowDown());
+                starChange.StartSlowDown();
             } 
             else if(randomizer == 1)
             {
-                StartCoroutine(starChange.StarPower());
+                starChange.StartStarChange();
             }
 
-            
+            gameObject.SetActive(false);
 
-            Destroy(gameObject);
+            Destroy(gameObject, 3f);
         }
     }
 }

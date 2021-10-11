@@ -17,6 +17,7 @@ public class DestroyObject : MonoBehaviour
             if (other.gameObject.tag == "Enemy")
             {
                 Destroy(gameObject);
+                playerDied();
             }
         }
         else

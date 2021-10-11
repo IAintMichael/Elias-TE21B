@@ -10,5 +10,7 @@ public class UIManager : MonoBehaviour
     {
         deathPanel.SetActive(!deathPanel.activeSelf);
 
+        Debug.Log(deathPanel.activeSelf);
+
     }
 }

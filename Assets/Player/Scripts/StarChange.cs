@@ -60,6 +60,22 @@ public class StarChange : MonoBehaviour
 
         gameObject.GetComponent<Renderer>().material = allMats[0];
         destroyGame.is_Star = false;
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[1];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
+
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[1];
+        yield return new WaitForSeconds(0.25f);
+
+        gameObject.GetComponent<Renderer>().material = allMats[0];
+        destroyGame.is_Star = false;
     }
     public IEnumerator SlowDown()
     {

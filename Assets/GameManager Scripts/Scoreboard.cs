@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 public class Scoreboard : MonoBehaviour
 {
+    public bool dead;
+
     float scoretimer;
     public TextMeshProUGUI score;
 
@@ -11,13 +13,18 @@ public class Scoreboard : MonoBehaviour
     void Start()
     {
         scoretimer = 0;
+        dead = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        score.SetText(scoretimer.ToString("F1") + "s");
+        if (!dead)
+        {
+            score.SetText(scoretimer.ToString("F1") + "s");
 
-        scoretimer += Time.deltaTime;
+            scoretimer += Time.deltaTime;
+        }
+       
     }
 }

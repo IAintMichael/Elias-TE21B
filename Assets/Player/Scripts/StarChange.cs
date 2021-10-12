@@ -16,18 +16,6 @@ public class StarChange : MonoBehaviour
     {
         destroyGame = GetComponent<DestroyObject>();
     }
-
-    private void Update()
-    {
-        if (gameObject.GetComponent<DestroyObject>().is_Star)
-        {
-            
-        }
-        else
-        {
-            gameObject.GetComponent<Renderer>().material = allMats[0];
-        }
-    }
     public IEnumerator StarPower()
     {
         destroyGame.is_Star = true;
@@ -59,7 +47,6 @@ public class StarChange : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         gameObject.GetComponent<Renderer>().material = allMats[0];
-        destroyGame.is_Star = false;
 
         yield return new WaitForSeconds(0.25f);
 
